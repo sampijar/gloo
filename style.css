@@ -1,0 +1,87 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #0f172a; /* malam */
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+/* SVG bunga */
+svg {
+  width: 300px;
+  height: 300px;
+  z-index: 2;
+}
+
+.flower {
+  transform: scale(0);
+  animation: bloom 4s ease-out forwards;
+  transform-origin: center center;
+}
+
+@keyframes bloom {
+  0%   { transform: scale(0);   opacity: 0; }
+  50%  { transform: scale(0.4); opacity: 1; }
+  100% { transform: scale(1);   opacity: 1; }
+}
+
+/* Tulisan */
+h1 {
+  margin-top: 20px;
+  font-size: 28px;
+  opacity: 0;
+  animation: fadeIn 2s ease-in 4s forwards;
+  z-index: 2;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Bulan sabit */
+.moon {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #fef3c7;
+  box-shadow: 0 0 30px #fff7b3;
+}
+
+.moon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #0f172a;
+}
+
+/* Kunang-kunang */
+.firefly {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fef08a;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #fde047;
+  animation: fly 8s infinite ease-in-out;
+}
+
+@keyframes fly {
+  0%   { transform: translate(0,0); opacity: 0.3; }
+  25%  { transform: translate(50px,-80px); opacity: 1; }
+  50%  { transform: translate(-30px,-150px); opacity: 0.6; }
+  75%  { transform: translate(80px,-60px); opacity: 1; }
+  100% { transform: translate(0,0); opacity: 0.3; }
+}
